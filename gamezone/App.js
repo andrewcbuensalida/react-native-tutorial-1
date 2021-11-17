@@ -1,6 +1,7 @@
 import React from "react";
-import Home from "./screens/home";
 import { useFonts } from "expo-font";
+import { NavigationContainer } from "@react-navigation/native";
+import HomeStack from "./routes/homeStack";
 
 export default function App() {
 	const [fontsLoaded] = useFonts({
@@ -9,7 +10,11 @@ export default function App() {
 	});
 
 	if (fontsLoaded) {
-		return <Home />;
+		return (
+			<NavigationContainer>
+				<HomeStack />
+			</NavigationContainer>
+		);
 	} else {
 		return null;
 	}
