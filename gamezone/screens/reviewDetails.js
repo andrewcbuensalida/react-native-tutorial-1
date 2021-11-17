@@ -2,10 +2,10 @@ import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { globalStyles } from "../styles/global";
 
-export default function ReviewDetails() {
+export default function ReviewDetails({ route, navigation }) {
 	return (
 		<View style={globalStyles.container}>
-			<Text>ReviewDetails Screen</Text>
+			<Text>{route.params.title}</Text>
 		</View>
 	);
 }
