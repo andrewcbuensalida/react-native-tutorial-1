@@ -1,7 +1,7 @@
 import React from "react";
 import { useFonts } from "expo-font";
 import { NavigationContainer } from "@react-navigation/native";
-import HomeStack from "./routes/homeStack";
+import Navigator from "./routes/drawer";
 
 export default function App() {
 	const [fontsLoaded] = useFonts({
@@ -12,7 +12,7 @@ export default function App() {
 	if (fontsLoaded) {
 		return (
 			<NavigationContainer>
-				<HomeStack />
+				<Navigator />
 			</NavigationContainer>
 		);
 	} else {
