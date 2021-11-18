@@ -7,15 +7,13 @@ export const globalStyles = StyleSheet.create({
 	},
 	titleText: {
 		fontFamily: "nunito-bold",
-		fontSize: 30,
+		fontSize: 25,
 		color: "#333",
-		borderBottomWidth: 2,
-		borderColor: "black",
-		borderStyle: "solid",
+		padding: 8,
 	},
 	paragraph: {
-		marginVertical: 8,
-		lineHeight: 20,
+		fontSize: 22,
+		padding: 8,
 	},
 	header: {
 		backgroundColor: "orange",
