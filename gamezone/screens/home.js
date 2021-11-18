@@ -17,7 +17,7 @@ import Card from "../shared/card";
 import HeatForm from "./heatForm";
 
 export default function Home({ navigation }) {
-	const [modalOpen, setModalOpen] = useState(true);
+	const [modalOpen, setModalOpen] = useState(false);
 	const [heat, setHeat] = useState([
 		{
 			title: "Peak run of the year",
