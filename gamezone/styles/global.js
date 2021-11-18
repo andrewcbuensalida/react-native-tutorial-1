@@ -16,7 +16,7 @@ export const globalStyles = StyleSheet.create({
 		padding: 8,
 	},
 	header: {
-		backgroundColor: "orange",
+		backgroundColor: "#f08e2c",
 		flexDirection: "row",
 		justifyContent: "center",
 		alignItems: "flex-end",
@@ -36,3 +36,12 @@ export const globalStyles = StyleSheet.create({
 		padding: 10,
 	},
 });
+
+export const images = {
+	rank: {
+		1: require("../assets/1st.png"),
+		2: require("../assets/2nd.png"),
+		3: require("../assets/3rd.png"),
+		other: require("../assets/blank-medal.jpg"),
+	},
+};

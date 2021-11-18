@@ -2,7 +2,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 
 import Home from "../screens/home";
-import ReviewDetails from "../screens/reviewDetails";
+import Details from "../screens/Details";
 import Header from "../shared/header";
 import { globalStyles } from "../styles/global";
 
@@ -18,13 +18,13 @@ export default function HomeStack() {
 				component={Home}
 				options={{
 					header: ({ navigation }) => (
-						<Header navigation={navigation} title={"GameZone"} />
+						<Header navigation={navigation} title={"Heat"} />
 					),
 				}}
 			/>
 			<Stack.Screen
-				name="ReviewDetails"
-				component={ReviewDetails}
+				name="Details"
+				component={Details}
 				options={{
 					title: "Review Details",
 				}}

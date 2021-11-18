@@ -1,7 +1,7 @@
 {
 	"expo": {
-		"name": "gamezone",
-		"slug": "gamezone",
+		"name": "Heat",
+		"slug": "Heat",
 		"privacy": "public",
 		"sdkVersion": "43.0.0",
 		"platforms": ["ios", "android", "web"],

@@ -7,22 +7,28 @@ import Card from "../shared/card";
 export default function Home({ navigation }) {
 	const [reviews, setReviews] = useState([
 		{
-			title: "Zelda, Breath of Fresh Air",
-			rating: 5,
+			title: "Peak run of the year",
+			rank: 1,
 			body: "lorem ipsum",
 			key: "1",
 		},
 		{
-			title: "Gotta Catch Them All (again)",
-			rating: 4,
-			body: "lorem ipsum",
+			title: "Getting there",
+			rank: 3,
+			body: "lorem ipsulorema af asf asdf asdf asf af asdf af asf asf af af fd asf af  lorem		af af asf af m",
 			key: "2",
 		},
 		{
-			title: 'Not So "Final" Fantasy',
-			rating: 3,
+			title: "First run of the year",
+			rank: 8,
 			body: "lorem ipsum",
 			key: "3",
+		},
+		{
+			title: "After alot of training",
+			rank: 2,
+			body: "lorem ipsum",
+			key: "4",
 		},
 	]);
 	return (
@@ -31,9 +37,7 @@ export default function Home({ navigation }) {
 				data={reviews}
 				renderItem={({ item }) => (
 					<TouchableOpacity
-						onPress={() =>
-							navigation.navigate("ReviewDetails", item)
-						}
+						onPress={() => navigation.navigate("Details", item)}
 					>
 						<Card>
 							<Text style={globalStyles.titleText}>
