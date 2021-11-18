@@ -7,16 +7,18 @@ import {
 	FlatList,
 	TouchableOpacity,
 	StyleSheet,
+	TouchableWithoutFeedback,
+	Keyboard,
 } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 
 import { globalStyles } from "../styles/global";
 import Card from "../shared/card";
-import ReviewForm from "./reviewForm";
+import HeatForm from "./heatForm";
 
 export default function Home({ navigation }) {
 	const [modalOpen, setModalOpen] = useState(true);
-	const [reviews, setReviews] = useState([
+	const [heat, setHeat] = useState([
 		{
 			title: "Peak run of the year",
 			rank: 1,
@@ -42,19 +44,29 @@ export default function Home({ navigation }) {
 			key: "4",
 		},
 	]);
+	const addHeat = (heat) => {
+		heat.key = Math.random().toString();
+		setHeat((prev) => [heat, ...prev]);
+		setModalOpen(false);
+	};
 	return (
 		<View style={globalStyles.container}>
 			<Modal visible={modalOpen} animationType="slide">
-				<View style={styles.modalContent}>
-					<MaterialIcons
-						name="close"
-						size={30}
-						style={{ ...styles.modalToggle, ...styles.modalClose }}
-						onPress={() => setModalOpen(false)}
-					/>
-					<Text>Hello</Text>
-					<ReviewForm />
-				</View>
+				<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+					<View style={styles.modalContent}>
+						<MaterialIcons
+							name="close"
+							size={30}
+							style={{
+								...styles.modalToggle,
+								...styles.modalClose,
+							}}
+							onPress={() => setModalOpen(false)}
+						/>
+						<Text>Add heat</Text>
+						<HeatForm addHeat={addHeat} />
+					</View>
+				</TouchableWithoutFeedback>
 			</Modal>
 			<MaterialIcons
 				name="add"
@@ -63,7 +75,7 @@ export default function Home({ navigation }) {
 				size={40}
 			/>
 			<FlatList
-				data={reviews}
+				data={heat}
 				renderItem={({ item }) => (
 					<TouchableOpacity
 						onPress={() => navigation.navigate("Details", item)}

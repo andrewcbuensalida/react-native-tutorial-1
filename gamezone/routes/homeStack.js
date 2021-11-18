@@ -26,7 +26,7 @@ export default function HomeStack() {
 				name="Details"
 				component={Details}
 				options={{
-					title: "Review Details",
+					title: "Heat Details",
 				}}
 			/>
 		</Stack.Navigator>
