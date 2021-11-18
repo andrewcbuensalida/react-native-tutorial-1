@@ -35,21 +35,36 @@ export default function HeatForm({ addHeat }) {
 							placeholder={"Title"}
 							onChangeText={props.handleChange("title")}
 							value={props.values.title}
+							onBlur={props.handleBlur("title")}
 						/>
+						<Text style={globalStyles.errorText}>
+							{/*errors.title comes from yup*/}
+							{props.touched.title && props.errors.title}
+						</Text>
 						<TextInput
 							style={globalStyles.input}
 							multiline
 							placeholder="Details"
 							onChangeText={props.handleChange("body")}
 							value={props.values.body}
+							onBlur={props.handleBlur("body")}
 						/>
+						<Text style={globalStyles.errorText}>
+							{/*errors.title comes from yup*/}
+							{props.touched.body && props.errors.body}
+						</Text>
 						<TextInput
 							style={globalStyles.input}
 							placeholder="Rank"
 							onChangeText={props.handleChange("rank")}
 							value={props.values.rank}
 							keyboardType="numeric"
+							onBlur={props.handleBlur("rank")}
 						/>
+						<Text style={globalStyles.errorText}>
+							{/*errors.title comes from yup*/}
+							{props.touched.rank && props.errors.rank}
+						</Text>
 						<Button
 							color="orange"
 							title="Submit"

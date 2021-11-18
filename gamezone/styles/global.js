@@ -44,6 +44,13 @@ export const globalStyles = StyleSheet.create({
 		borderWidth: 1,
 		borderColor: "lightgrey",
 	},
+	errorText: {
+		fontSize: 18,
+		fontWeight: "bold",
+		color: "crimson",
+		// marginBottom: 10,
+		marginBottom: 6,
+	},
 });
 
 export const images = {

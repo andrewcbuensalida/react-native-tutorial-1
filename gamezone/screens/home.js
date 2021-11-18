@@ -63,7 +63,14 @@ export default function Home({ navigation }) {
 							}}
 							onPress={() => setModalOpen(false)}
 						/>
-						<Text>Add heat</Text>
+						<Text
+							style={{
+								textAlign: "center",
+								...globalStyles.titleText,
+							}}
+						>
+							Add heat
+						</Text>
 						<HeatForm addHeat={addHeat} />
 					</View>
 				</TouchableWithoutFeedback>
