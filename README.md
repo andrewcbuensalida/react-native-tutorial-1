@@ -26,4 +26,6 @@ go to aws route53 and create a record www.heat.anhonestobserver.com and naked th
 
 sudo certbot --nginx to get ssl
 
+create postgres db by following instructions in db.sql
+
 create a node server
