@@ -33,13 +33,12 @@ export default function Home({ navigation }) {
 							navigation.navigate("ReviewDetails", item)
 						}
 					>
-						<Text>{item.title}</Text>
+						<Text style={globalStyles.titleText}>{item.title}</Text>
 					</TouchableOpacity>
 				)}
 			/>
 			<Button
 				title="Go to about"
-				style={globalStyles.button}
 				onPress={() => navigation.navigate("About")}
 			/>
 		</View>
