@@ -1,10 +1,20 @@
 import React, { useState } from "react";
-import { View, Text, Button, FlatList, TouchableOpacity } from "react-native";
+import {
+	Modal,
+	View,
+	Text,
+	Button,
+	FlatList,
+	TouchableOpacity,
+	StyleSheet,
+} from "react-native";
+import { MaterialIcons } from "@expo/vector-icons";
 
 import { globalStyles } from "../styles/global";
 import Card from "../shared/card";
 
 export default function Home({ navigation }) {
+	const [modalOpen, setModalOpen] = useState(true);
 	const [reviews, setReviews] = useState([
 		{
 			title: "Peak run of the year",
@@ -25,7 +35,7 @@ export default function Home({ navigation }) {
 			key: "3",
 		},
 		{
-			title: "After alot of training",
+			title: "After alot of training and dieting",
 			rank: 2,
 			body: "lorem ipsum",
 			key: "4",
@@ -33,6 +43,23 @@ export default function Home({ navigation }) {
 	]);
 	return (
 		<View style={globalStyles.container}>
+			<Modal visible={modalOpen} animationType="slide">
+				<View style={styles.modalContent}>
+					<MaterialIcons
+						name="close"
+						size={40}
+						style={{ ...styles.modalToggle, ...styles.modalClose }}
+						onPress={() => setModalOpen(false)}
+					/>
+					<Text>Hello</Text>
+				</View>
+			</Modal>
+			<MaterialIcons
+				name="add"
+				style={styles.modalToggle}
+				onPress={() => setModalOpen(true)}
+				size={40}
+			/>
 			<FlatList
 				data={reviews}
 				renderItem={({ item }) => (
@@ -54,3 +81,23 @@ export default function Home({ navigation }) {
 		</View>
 	);
 }
+
+const styles = StyleSheet.create({
+	modalToggle: {
+		justifyContent: "center",
+		alignItems: "center",
+		marginBottom: 10,
+		borderWidth: 2,
+		borderColor: "#f2f2f2",
+		padding: 10,
+		borderRadius: 10,
+		alignSelf: "center",
+	},
+	modalClose: {
+		marginTop: 20,
+		marginBottom: 0,
+	},
+	modalContent: {
+		flex: 1,
+	},
+});

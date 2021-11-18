@@ -3,17 +3,18 @@ import { StyleSheet } from "react-native";
 export const globalStyles = StyleSheet.create({
 	container: {
 		flex: 1,
-		padding: 20,
+		padding: 10,
 	},
 	titleText: {
 		fontFamily: "nunito-bold",
 		fontSize: 25,
 		color: "#333",
-		padding: 8,
+		// padding: 0,
 	},
 	paragraph: {
 		fontSize: 22,
-		padding: 8,
+		// padding: 8,
+		marginTop: 5,
 	},
 	header: {
 		backgroundColor: "#f08e2c",
@@ -22,7 +23,7 @@ export const globalStyles = StyleSheet.create({
 		alignItems: "flex-end",
 		height: 100,
 	},
-	icon: {
+	burger: {
 		position: "absolute",
 		left: 10,
 		padding: 10,

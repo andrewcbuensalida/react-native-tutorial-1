@@ -14,7 +14,7 @@ export default function Header({ navigation, title }) {
 				name="menu"
 				size={28}
 				onPress={openDrawer}
-				style={globalStyles.icon}
+				style={globalStyles.burger}
 			/>
 			<View style={styles.logoContainer}>
 				<Image
