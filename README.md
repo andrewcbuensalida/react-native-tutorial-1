@@ -1,9 +1,29 @@
-# React Native Tutorial
-This repo contains all the course files for the React Tutorial for Beginners playlist on The Net Ninja Playlist
+copy config of docg
+sudo cp /etc/nginx/sites-available/docg.anhonestobserver.com.conf /etc/nginx/sites-available/heat.anhonestobserver.com.conf
 
-## Using the course files
-Each lesson in the series has its own branch, so you'll need to select that branch to see the coe for that lesson. E.g. to see the code for lesson 10, you would select the lesson-10 branch.
+edit
+sudo nano /etc/nginx/sites-available/heat.anhonestobserver.com.conf
 
-## Installing dependencies
-If you download the repo code / clone the repo, you will need to run `npm install` in the project directory to install any project dependencies first. Without doing this, the code may not work as expected.
+delete the 443 stuff so it looks like
+server {
+listen 80;
+server_name heat.anhonestobserver.com www.heat.anhonestobserver.com;
 
+location / {
+proxy_pass http://localhost:3000;
+proxy_http_version 1.1;
+proxy_set_header Upgrade $http_upgrade;
+proxy_set_header Connection 'upgrade';
+proxy_set_header Host $host;
+proxy_cache_bypass $http_upgrade;
+}
+}
+
+sudo ln -s /etc/nginx/sites-available/heat.anhonestobserver.com.conf /etc/nginx/sites-enabled/
+sudo systemctl reload nginx
+
+go to aws route53 and create a record www.heat.anhonestobserver.com and naked that points to ip address of google compute engine.
+
+sudo certbot --nginx to get ssl
+
+create a node server
