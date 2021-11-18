@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
 	Modal,
 	View,
@@ -49,6 +49,16 @@ export default function Home({ navigation }) {
 		setHeat((prev) => [heat, ...prev]);
 		setModalOpen(false);
 	};
+	useEffect(() => {
+		console.log(`hello`);
+		const getHeats = async () => {
+			await fetch("https://swapi.dev/api/people")
+				.then((result) => result.json())
+				.then((heats) => console.log(heats));
+		};
+		getHeats();
+	}, []);
+
 	return (
 		<View style={globalStyles.container}>
 			<Modal visible={modalOpen} animationType="slide">
