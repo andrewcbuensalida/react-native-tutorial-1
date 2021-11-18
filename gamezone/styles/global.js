@@ -36,6 +36,14 @@ export const globalStyles = StyleSheet.create({
 		color: "#333",
 		padding: 10,
 	},
+	input: {
+		padding: 9,
+		marginTop: 5,
+		marginBottom: 10,
+		fontSize: 20,
+		borderWidth: 1,
+		borderColor: "lightgrey",
+	},
 });
 
 export const images = {
