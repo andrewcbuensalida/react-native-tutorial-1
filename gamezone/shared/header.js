@@ -4,7 +4,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 
 import { globalStyles } from "../styles/global";
 
-export default function Header({ navigation }) {
+export default function Header({ navigation, title }) {
 	const openDrawer = () => {
 		console.log(navigation.openDrawer());
 	};
@@ -17,7 +17,7 @@ export default function Header({ navigation }) {
 				style={globalStyles.icon}
 			/>
 			<View>
-				<Text style={globalStyles.headerText}>{"asdf"}</Text>
+				<Text style={globalStyles.headerText}>{title}</Text>
 			</View>
 		</View>
 	);

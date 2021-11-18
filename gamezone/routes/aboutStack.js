@@ -10,7 +10,9 @@ export default function AboutStack() {
 	return (
 		<Stack.Navigator
 			screenOptions={{
-				header: ({ navigation }) => <Header navigation={navigation} />,
+				header: ({ navigation }) => (
+					<Header navigation={navigation} title={"About"} />
+				),
 			}}
 		>
 			<Stack.Screen name="About" component={About} />
