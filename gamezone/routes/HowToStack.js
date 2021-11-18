@@ -1,21 +1,21 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 
-import About from "../screens/about";
+import HowTo from "../screens/HowTo";
 import Header from "../shared/header";
 
 const Stack = createStackNavigator();
 
-export default function AboutStack() {
+export default function HowToStack() {
 	return (
 		<Stack.Navigator
 			screenOptions={{
 				header: ({ navigation }) => (
-					<Header navigation={navigation} title={"About"} />
+					<Header navigation={navigation} title={"How To"} />
 				),
 			}}
 		>
-			<Stack.Screen name="About" component={About} />
+			<Stack.Screen name="HowTo" component={HowTo} />
 		</Stack.Navigator>
 	);
 }

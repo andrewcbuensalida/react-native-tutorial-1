@@ -95,10 +95,6 @@ export default function Home({ navigation }) {
 					</TouchableOpacity>
 				)}
 			/>
-			<Button
-				title="Go to about"
-				onPress={() => navigation.navigate("About")}
-			/>
 		</View>
 	);
 }
