@@ -16,14 +16,12 @@ import { globalStyles } from "../styles/global";
 import Card from "../shared/card";
 import HeatForm from "./heatForm";
 
-const URL = "https://heat.anhonestobserver.com/";
+const URL = "https://heat.anhonestobserver.com";
 
 export default function Home({ navigation }) {
 	const [modalOpen, setModalOpen] = useState(false);
 	const [heat, setHeat] = useState([]);
 	const addHeat = async (heat) => {
-		console.log(`This is heat`);
-		console.log(heat);
 		heat.timestamp = Date.now();
 		try {
 			const response = await fetch(`${URL}/api/v1/heats`, {
@@ -33,7 +31,10 @@ export default function Home({ navigation }) {
 			});
 			setHeat((prev) => [heat, ...prev]);
 			setModalOpen(false);
-		} catch (error) {}
+		} catch (error) {
+			console.log(`This is error`);
+			console.log(error);
+		}
 	};
 	useEffect(() => {
 		try {

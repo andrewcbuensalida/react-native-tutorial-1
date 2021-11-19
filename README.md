@@ -54,4 +54,6 @@ pm2 save
 
 to check logs , pm2 logs heat --timestamp
 
-development workflow isnt so great. if changing the server, have to push to github then on remote have to pull. then switch to proper branch.
+development workflow isnt so great. if changing the server, cant remote ssh via vs code if remote has low ram, itll just crash and have to restart server. just ssh via gcp, then push to sync changes to local.
+
+rr to refresh emulator
