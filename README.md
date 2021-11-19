@@ -54,6 +54,12 @@ pm2 save
 
 to check logs , pm2 logs heat --timestamp
 
-development workflow isnt so great. if changing the server, cant remote ssh via vs code if remote has low ram, itll just crash and have to restart server. just ssh via gcp, then push to sync changes to local. except that i cant because support for password authentication ended in august 2021. so ngrok is the answer.
+<!-- development workflow isnt so great. if changing the server, cant remote ssh via vs code if remote has low ram, has to be maybe 4gb at least, or else itll just crash and have to restart server. just ssh via gcp, then push to sync changes to local. except that i cant because support for password authentication ended in august 2021. so ngrok is the answer.
+
+open powershell, then
+cd "C:\Program Files\nginx-1.20.1" -->
+<!-- then ngrok.exe http 3000 , 3000 being the port of the node server. -->
+
+ACTUALLY NGROK ISN'T THE ANSWER BECAUSE GOING TO HAVE TO FIX UP THE DATABASE LOCALLY AND REMOTELY, DOUBLE WORK. JUST EDIT the server on remote ssh, and edit the client on local. then just copy from remote and paste to local. then push local. then pull in remote.
 
 rr to refresh emulator
