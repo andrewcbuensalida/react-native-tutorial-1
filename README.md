@@ -37,4 +37,19 @@ then access postgresql: psql
 
 create postgres db by following instructions in db.sql
 
-create a node server
+create a node server locally, upload it to github, then in compute engine clone it
+git clone https://github.com/andrewcbuensalida/react-native-tutorial-1.git
+rename folder to heat, mv react-native-tutorial-1 heat
+cd into heat/server, cd heat, then create .env withh sudo nano .env
+npm i to install dependencies
+
+ss -tnlp | grep "node /" to see what ports pm2 processes are running on.
+
+to run server, with auto restart when files change, put --watch,
+pm2 start server.js --watch --name heat
+
+then to auto restart when instance reboots,
+pm2 startup
+pm2 save
+
+to check logs , pm2 logs heat --timestamp

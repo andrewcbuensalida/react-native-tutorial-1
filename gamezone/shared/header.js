@@ -6,7 +6,7 @@ import { globalStyles } from "../styles/global";
 
 export default function Header({ navigation, title }) {
 	const openDrawer = () => {
-		console.log(navigation.openDrawer());
+		navigation.openDrawer();
 	};
 	return (
 		<View style={globalStyles.header}>

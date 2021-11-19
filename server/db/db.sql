@@ -1,5 +1,8 @@
-open pg shell
+-- open pg shell
 \l lists all the databases
+
+-- change password
+alter user postgres password '<myPassword>';
 
 -- to create database
 CREATE DATABASE heat;

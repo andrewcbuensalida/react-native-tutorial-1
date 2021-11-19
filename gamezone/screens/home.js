@@ -18,49 +18,19 @@ import HeatForm from "./heatForm";
 
 export default function Home({ navigation }) {
 	const [modalOpen, setModalOpen] = useState(false);
-	const [heat, setHeat] = useState([
-		{
-			title: "Peak run of the year",
-			rank: 1,
-			body: "lorem ipsum",
-			key: "1",
-		},
-		{
-			title: "Getting there",
-			rank: 3,
-			body: "lorem ipsulorema af asf asdf asdf asf af asdf af asf asf af af fd asf af  lorem		af af asf af m",
-			key: "2",
-		},
-		{
-			title: "First run of the year",
-			rank: 8,
-			body: "lorem ipsum",
-			key: "3",
-		},
-		{
-			title: "After alot of training and dieting",
-			rank: 2,
-			body: "lorem ipsum",
-			key: "4",
-		},
-	]);
+	const [heat, setHeat] = useState([]);
 	const addHeat = (heat) => {
 		heat.key = Math.random().toString();
 		setHeat((prev) => [heat, ...prev]);
 		setModalOpen(false);
 	};
 	useEffect(() => {
-		console.log(`hello`);
 		const getHeats = async () => {
-			// const result = await fetch("https://swapi.dev/api/people/1/");
-			const result = await fetch(
+			const heatsRaw = await fetch(
 				"https://heat.anhonestobserver.com/home"
 			);
-			const luke = await result.json();
-			console.log(`This is luke`);
-			console.log(luke);
-
-			// const heats =
+			const heats = await heatsRaw.json();
+			setHeat(heats.data);
 		};
 		getHeats();
 	}, []);
