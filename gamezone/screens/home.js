@@ -16,23 +16,34 @@ import { globalStyles } from "../styles/global";
 import Card from "../shared/card";
 import HeatForm from "./heatForm";
 
+const URL = "https://heat.anhonestobserver.com/";
+
 export default function Home({ navigation }) {
 	const [modalOpen, setModalOpen] = useState(false);
 	const [heat, setHeat] = useState([]);
-	const addHeat = (heat) => {
-		heat.key = Math.random().toString();
-		setHeat((prev) => [heat, ...prev]);
-		setModalOpen(false);
+	const addHeat = async (heat) => {
+		console.log(`This is heat`);
+		console.log(heat);
+
+		try {
+			const response = await fetch(`${URL}/api/v1/heats`, {
+				method: "POST",
+				body: JSON.stringify(heat),
+				headers: { "Content-Type": "application/json" },
+			});
+			setHeat((prev) => [heat, ...prev]);
+			setModalOpen(false);
+		} catch (error) {}
 	};
 	useEffect(() => {
-		const getHeats = async () => {
-			const heatsRaw = await fetch(
-				"https://heat.anhonestobserver.com/home"
-			);
-			const heats = await heatsRaw.json();
-			setHeat(heats.data);
-		};
-		getHeats();
+		try {
+			const getHeats = async () => {
+				const heatsRaw = await fetch(`${URL}/api/v1/heats`);
+				const heats = await heatsRaw.json();
+				setHeat(heats.data);
+			};
+			getHeats();
+		} catch (error) {}
 	}, []);
 
 	return (
