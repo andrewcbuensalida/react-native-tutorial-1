@@ -15,6 +15,9 @@ const heatSchema = yup.object({
 			"is-num-above-0",
 			"Rank must be greater than 0",
 			(val) => 0 < parseInt(val)
+		)
+		.test("is-a-num", "Rank must be a number only.", (val) =>
+			Number.isInteger(Number(val))
 		),
 });
 export default function HeatForm({ addHeat }) {
