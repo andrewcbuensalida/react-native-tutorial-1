@@ -62,4 +62,19 @@ cd "C:\Program Files\nginx-1.20.1" -->
 
 ACTUALLY NGROK ISN'T THE ANSWER BECAUSE GOING TO HAVE TO FIX UP THE DATABASE LOCALLY AND REMOTELY, DOUBLE WORK. JUST EDIT the server on remote ssh, and edit the client on local. then just copy from remote and paste to local. then push local. then pull in remote.
 
+also explore element inspector. react native debugger or something.
+
 rr to refresh emulator
+
+to publish to expo:
+https://docs.expo.dev/classic/building-standalone-apps/
+cd into client folder, then expo build:android or expo build:ios
+building android will point you to a url with a qr code. give you an aab file. which you can download onto your phone and install. for some reason though, couldn't install aab, only apk.
+expo publish will give you the url with qr code.
+build:ios then choosing simulator will give you a .tar file.
+need to have paid developer account for ios if not building simulator version
+build automatically publishes
+now can go to https://expo.dev/@andrewcbuensalida/heat
+
+<!-- to publish to the play store, npm install --global eas-cli
+then eas submit --platform android --url https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/android/%40andrewcbuensalida/heat-7270f58d628c4f118a785012c76b69e9-signed.aab -->
