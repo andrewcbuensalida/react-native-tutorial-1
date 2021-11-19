@@ -25,7 +25,19 @@ CREATE TABLE heats (
     rank INT NOT NULL check( rank > 0 )
 );
 
--- 
+-- populate table with some data
+insert into heats (title,body,rank) values ('First run of the app', 'This is my first heat. I enjoyed it very much.', '1');
+insert into heats (title,body,rank) values ('Side stitches', 'I got side stitches.', '9'); 
+
+-- check to see if data is in
+select * from heats;
+
+-- exit out of database
+\q
+
+-- exit out of regular system user
+exit
+
 select *
 from doctors
     left join(

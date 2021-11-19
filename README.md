@@ -26,6 +26,15 @@ go to aws route53 and create a record www.heat.anhonestobserver.com and naked th
 
 sudo certbot --nginx to get ssl
 
+to install postgres on linux: https://www.postgresql.org/download/linux/ubuntu/
+sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo apt-get update
+sudo apt-get -y install postgresql
+
+switch to postgres account: sudo -i -u postgres
+then access postgresql: psql
+
 create postgres db by following instructions in db.sql
 
 create a node server

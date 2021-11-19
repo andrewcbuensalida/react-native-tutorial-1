@@ -52,9 +52,15 @@ export default function Home({ navigation }) {
 	useEffect(() => {
 		console.log(`hello`);
 		const getHeats = async () => {
-			await fetch("https://swapi.dev/api/people")
-				.then((result) => result.json())
-				.then((heats) => console.log(heats));
+			// const result = await fetch("https://swapi.dev/api/people/1/");
+			const result = await fetch(
+				"https://heat.anhonestobserver.com/home"
+			);
+			const luke = await result.json();
+			console.log(`This is luke`);
+			console.log(luke);
+
+			// const heats =
 		};
 		getHeats();
 	}, []);
