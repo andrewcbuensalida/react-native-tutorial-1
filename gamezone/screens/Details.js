@@ -6,33 +6,40 @@ import { globalStyles, images } from "../styles/global";
 import Card from "../shared/card";
 
 export default function Details({ route }) {
-	return (
-		<View style={globalStyles.container}>
-			<Card>
-				<Text style={globalStyles.titleText}>{route.params.title}</Text>
-				<Text style={globalStyles.paragraph}>{route.params.body}</Text>
-				<View style={styles.rankContainer}>
-					<Text style={globalStyles.paragraph}>Rank:</Text>
-					{
-						<Image
-							style={styles.rankImage}
-							source={
-								route.params.rank > 3
-									? images.rank.other
-									: images.rank[route.params.rank]
-							}
-						/>
-					}
-				</View>
-			</Card>
-			<MaterialIcons
-				name="delete"
-				size={50}
-				style={styles.delete}
-				onPress={() => {}}
-			/>
-		</View>
-	);
+	const { item, deleteHeat } = route.params;
+	if (!item) {
+		return null;
+	} else {
+		return (
+			<View style={globalStyles.container}>
+				<Card>
+					<Text style={globalStyles.titleText}>{item.title}</Text>
+					<Text style={globalStyles.paragraph}>{item.body}</Text>
+					<View style={styles.rankContainer}>
+						<Text style={globalStyles.paragraph}>Rank:</Text>
+						{
+							<Image
+								style={styles.rankImage}
+								source={
+									item.rank > 3
+										? images.rank.other
+										: images.rank[item.rank]
+								}
+							/>
+						}
+					</View>
+				</Card>
+				<MaterialIcons
+					name="delete"
+					size={50}
+					style={styles.delete}
+					onPress={() => {
+						deleteHeat(item.id);
+					}}
+				/>
+			</View>
+		);
+	}
 }
 
 const styles = StyleSheet.create({

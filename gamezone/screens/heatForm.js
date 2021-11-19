@@ -6,8 +6,8 @@ import * as yup from "yup";
 import { globalStyles } from "../styles/global";
 
 const heatSchema = yup.object({
-	title: yup.string().required().min(4),
-	body: yup.string().required().min(4),
+	title: yup.string().required().min(4).max(50),
+	body: yup.string().required().min(4).max(255),
 	rank: yup
 		.string()
 		.required()

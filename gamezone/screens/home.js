@@ -20,7 +20,8 @@ const URL = "https://heat.anhonestobserver.com";
 
 export default function Home({ navigation }) {
 	const [modalOpen, setModalOpen] = useState(false);
-	const [heat, setHeat] = useState([]);
+	const [heats, setHeats] = useState([]);
+
 	const addHeat = async (heat) => {
 		heat.timestamp = Date.now();
 		try {
@@ -29,19 +30,36 @@ export default function Home({ navigation }) {
 				body: JSON.stringify(heat),
 				headers: { "Content-Type": "application/json" },
 			});
-			setHeat((prev) => [heat, ...prev]);
+			const addedHeat = await response.json();
+
+			setHeats((prev) => [addedHeat.data, ...prev]);
 			setModalOpen(false);
 		} catch (error) {
 			console.log(`This is error`);
 			console.log(error);
 		}
 	};
+
+	const deleteHeat = async (id) => {
+		console.log(`This is id`);
+		console.log(id);
+
+		try {
+			// url could be just ${URL}/api/v1/heats/ and then put id in body, or this
+			const result = await fetch(`${URL}/api/v1/heats/${id}`, {
+				method: "DELETE",
+			});
+			setHeats((prev) => prev.filter((heat) => heat.id != id));
+			navigation.navigate("Home");
+		} catch (error) {}
+	};
+
 	useEffect(() => {
 		try {
 			const getHeats = async () => {
 				const heatsRaw = await fetch(`${URL}/api/v1/heats`);
 				const heats = await heatsRaw.json();
-				setHeat(heats.data);
+				setHeats(heats.data);
 			};
 			getHeats();
 		} catch (error) {}
@@ -80,10 +98,12 @@ export default function Home({ navigation }) {
 				size={40}
 			/>
 			<FlatList
-				data={heat}
+				data={heats}
 				renderItem={({ item }) => (
 					<TouchableOpacity
-						onPress={() => navigation.navigate("Details", item)}
+						onPress={() =>
+							navigation.navigate("Details", { item, deleteHeat })
+						}
 					>
 						<Card>
 							<Text style={globalStyles.titleText}>
