@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
+import { MaterialIcons } from "@expo/vector-icons";
 
 import { globalStyles, images } from "../styles/global";
 import Card from "../shared/card";
@@ -24,6 +25,12 @@ export default function Details({ route }) {
 					}
 				</View>
 			</Card>
+			<MaterialIcons
+				name="delete"
+				size={50}
+				style={styles.delete}
+				onPress={() => {}}
+			/>
 		</View>
 	);
 }
@@ -41,5 +48,12 @@ const styles = StyleSheet.create({
 		marginTop: 16,
 		borderTopWidth: 1,
 		borderTopColor: "#eee",
+	},
+	delete: {
+		color: "grey",
+		bottom: 0,
+		margin: 10,
+		position: "absolute",
+		alignSelf: "center",
 	},
 });
