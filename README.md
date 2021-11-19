@@ -54,6 +54,6 @@ pm2 save
 
 to check logs , pm2 logs heat --timestamp
 
-development workflow isnt so great. if changing the server, cant remote ssh via vs code if remote has low ram, itll just crash and have to restart server. just ssh via gcp, then push to sync changes to local.
+development workflow isnt so great. if changing the server, cant remote ssh via vs code if remote has low ram, itll just crash and have to restart server. just ssh via gcp, then push to sync changes to local. except that i cant because support for password authentication ended in august 2021. so ngrok is the answer.
 
 rr to refresh emulator
