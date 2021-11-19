@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/api/v1/heats", async (req, res) => {
-	const result = await db.query("SELECT * FROM heats");
+	const result = await db.query("SELECT * FROM heats ORDER BY timestamp");
 	res.status(200).json({ status: "success", data: result.rows });
 });
 

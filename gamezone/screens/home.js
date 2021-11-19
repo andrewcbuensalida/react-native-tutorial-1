@@ -24,7 +24,7 @@ export default function Home({ navigation }) {
 	const addHeat = async (heat) => {
 		console.log(`This is heat`);
 		console.log(heat);
-
+		heat.timestamp = Date.now();
 		try {
 			const response = await fetch(`${URL}/api/v1/heats`, {
 				method: "POST",

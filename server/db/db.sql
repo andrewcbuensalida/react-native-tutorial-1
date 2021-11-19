@@ -13,6 +13,9 @@ CREATE DATABASE heat;
 -- display tables
 \d
 
+--display table columns
+\d <table name>
+
 -- this is to create the table. have users in the future, but for now just heats
 create table user (
     id bigserial not null primary key,

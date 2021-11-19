@@ -53,3 +53,5 @@ pm2 startup
 pm2 save
 
 to check logs , pm2 logs heat --timestamp
+
+development workflow isnt so great. if changing the server, have to push to github then on remote have to pull. then switch to proper branch.
